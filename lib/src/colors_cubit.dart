@@ -21,8 +21,8 @@ class ColorsState extends Equatable {
   List<Object?> get props => [color, text];
 }
 
-class CounterCubit extends Cubit<ColorsState> {
-  CounterCubit() : super(const ColorsState.initial());
+class ColorsCubit extends Cubit<ColorsState> {
+  ColorsCubit() : super(const ColorsState.initial());
 
   void updateText(String text) {
     emit(state.copyWith(text: text));
@@ -34,7 +34,9 @@ class CounterCubit extends Cubit<ColorsState> {
 
     final hasEnoughDigits = units.length > 2;
 
-    final red = (((hasEnoughDigits ? units[0] : defaultColor.red) / 255) * 255).floor();
+    print("${units[0]} ${units[1]} ${units[2]}");
+
+    final red = (((hasEnoughDigits ? units[0] : defaultColor.red) / 255) * 155).floor();
     final blue = (((hasEnoughDigits ? units[1] : defaultColor.blue) / 255) * 230).floor();
     final green = (((hasEnoughDigits ? units[2] : defaultColor.green) / 255) * 200).floor();
 
